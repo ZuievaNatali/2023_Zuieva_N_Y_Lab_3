@@ -1,0 +1,637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище MREO0Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="accident">
+    <Key>
+      <PropertyRef Name="id_accident" />
+    </Key>
+    <Property Name="id_accident" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description_a" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_time_accident" Type="datetime" Nullable="false" />
+    <Property Name="id_address" Type="int" Nullable="false" />
+    <Property Name="id_driver" Type="int" Nullable="false" />
+    <Property Name="id_car" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="accounting">
+    <Key>
+      <PropertyRef Name="id_accounting" />
+    </Key>
+    <Property Name="id_accounting" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_start" Type="date" Nullable="false" />
+    <Property Name="date_end" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="id_address" />
+    </Key>
+    <Property Name="id_address" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_street" Type="int" Nullable="false" />
+    <Property Name="id_city" Type="int" Nullable="false" />
+    <Property Name="id_building_number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="body_type">
+    <Key>
+      <PropertyRef Name="id_body_type" />
+    </Key>
+    <Property Name="id_body_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="body_type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="building_number">
+    <Key>
+      <PropertyRef Name="id_building_number" />
+    </Key>
+    <Property Name="id_building_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="building_number" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="flat_number" Type="varchar" MaxLength="10" />
+    <Property Name="street_id" Type="int" />
+  </EntityType>
+  <EntityType Name="car">
+    <Key>
+      <PropertyRef Name="id_car" />
+    </Key>
+    <Property Name="id_car" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_mark" Type="int" Nullable="false" />
+    <Property Name="id_model" Type="int" Nullable="false" />
+    <Property Name="id_color" Type="int" Nullable="false" />
+    <Property Name="id_accounting" Type="int" Nullable="false" />
+    <Property Name="id_car_number" Type="int" Nullable="false" />
+    <Property Name="id_categories" Type="int" Nullable="false" />
+    <Property Name="id_body_type" Type="int" Nullable="false" />
+    <Property Name="id_engine_type" Type="int" Nullable="false" />
+    <Property Name="sit" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "MREO0.dbo.car_by_driver" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="car_by_driver">
+    <Key>
+      <PropertyRef Name="id_driver" />
+      <PropertyRef Name="id_car" />
+    </Key>
+    <Property Name="id_driver" Type="int" Nullable="false" />
+    <Property Name="id_car" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="car_number">
+    <Key>
+      <PropertyRef Name="id_car_number" />
+    </Key>
+    <Property Name="id_car_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="car_number" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categories">
+    <Key>
+      <PropertyRef Name="id_categories" />
+    </Key>
+    <Property Name="id_categories" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categories" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="id_city" />
+    </Key>
+    <Property Name="id_city" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="city_name" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="color">
+    <Key>
+      <PropertyRef Name="id_color" />
+    </Key>
+    <Property Name="id_color" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="driver">
+    <Key>
+      <PropertyRef Name="id_driver" />
+    </Key>
+    <Property Name="id_driver" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_passport" Type="int" Nullable="false" />
+    <Property Name="id_driver_license" Type="int" Nullable="false" />
+    <Property Name="id_car" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="driver_license">
+    <Key>
+      <PropertyRef Name="id_driver_license" />
+    </Key>
+    <Property Name="license_number" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="department_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_of_receiving" Type="date" Nullable="false" />
+    <Property Name="id_driver_license" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_categories" Type="int" Nullable="false" />
+    <Property Name="id_driver_license_data" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employer">
+    <Key>
+      <PropertyRef Name="id_employer" />
+    </Key>
+    <Property Name="id_employer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_employer_rank" Type="int" Nullable="false" />
+    <Property Name="id_employer_position" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employer_position">
+    <Key>
+      <PropertyRef Name="id_employer_position" />
+    </Key>
+    <Property Name="id_employer_position" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="position_a" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="employer_rank">
+    <Key>
+      <PropertyRef Name="id_employer_rank" />
+    </Key>
+    <Property Name="id_employer_rank" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rank_a" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="engine_type">
+    <Key>
+      <PropertyRef Name="id_engine_type" />
+    </Key>
+    <Property Name="id_engine_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="engine_type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mark">
+    <Key>
+      <PropertyRef Name="id_mark" />
+    </Key>
+    <Property Name="id_mark" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mark" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="model">
+    <Key>
+      <PropertyRef Name="id_model" />
+    </Key>
+    <Property Name="id_model" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="id_mark" Type="int" />
+  </EntityType>
+  <EntityType Name="ownership_type">
+    <Key>
+      <PropertyRef Name="id_ownership_type" />
+    </Key>
+    <Property Name="id_ownership_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ownership_type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="passport">
+    <Key>
+      <PropertyRef Name="id_passport" />
+    </Key>
+    <Property Name="id_passport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="middle_name" Type="varchar" MaxLength="50" />
+    <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="birth_date" Type="date" />
+    <Property Name="sex" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="passport_number" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_address" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="street">
+    <Key>
+      <PropertyRef Name="id_street" />
+    </Key>
+    <Property Name="id_street" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="street_name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="city_id" Type="int" />
+  </EntityType>
+  <Association Name="FK__accident__id_add__75A278F5">
+    <End Role="address" Type="Self.address" Multiplicity="1" />
+    <End Role="accident" Type="Self.accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="id_address" />
+      </Principal>
+      <Dependent Role="accident">
+        <PropertyRef Name="id_address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__accident__id_car__73BA3083">
+    <End Role="car" Type="Self.car" Multiplicity="1" />
+    <End Role="accident" Type="Self.accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car">
+        <PropertyRef Name="id_car" />
+      </Principal>
+      <Dependent Role="accident">
+        <PropertyRef Name="id_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__accident__id_dri__74AE54BC">
+    <End Role="driver" Type="Self.driver" Multiplicity="1" />
+    <End Role="accident" Type="Self.accident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="id_driver" />
+      </Principal>
+      <Dependent Role="accident">
+        <PropertyRef Name="id_driver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__address__id_buil__6383C8BA">
+    <End Role="building_number" Type="Self.building_number" Multiplicity="1" />
+    <End Role="address" Type="Self.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="building_number">
+        <PropertyRef Name="id_building_number" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="id_building_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__address__id_city__628FA481">
+    <End Role="city" Type="Self.city" Multiplicity="1" />
+    <End Role="address" Type="Self.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="id_city" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="id_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__address__id_stre__619B8048">
+    <End Role="street" Type="Self.street" Multiplicity="1" />
+    <End Role="address" Type="Self.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="street">
+        <PropertyRef Name="id_street" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="id_street" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__building___stree__5EBF139D">
+    <End Role="street" Type="Self.street" Multiplicity="0..1" />
+    <End Role="building_number" Type="Self.building_number" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="street">
+        <PropertyRef Name="id_street" />
+      </Principal>
+      <Dependent Role="building_number">
+        <PropertyRef Name="street_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_accounti__5070F446">
+    <End Role="accounting" Type="Self.accounting" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="accounting">
+        <PropertyRef Name="id_accounting" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_accounting" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_body_typ__534D60F1">
+    <End Role="body_type" Type="Self.body_type" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="body_type">
+        <PropertyRef Name="id_body_type" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_body_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_car_numb__5165187F">
+    <End Role="car_number" Type="Self.car_number" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car_number">
+        <PropertyRef Name="id_car_number" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_car_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_categori__52593CB8">
+    <End Role="categories" Type="Self.categories" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id_categories" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_categories" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_color__4F7CD00D">
+    <End Role="color" Type="Self.color" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="color">
+        <PropertyRef Name="id_color" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_color" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_engine_t__5441852A">
+    <End Role="engine_type" Type="Self.engine_type" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="engine_type">
+        <PropertyRef Name="id_engine_type" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_engine_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_mark__4D94879B">
+    <End Role="mark" Type="Self.mark" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mark">
+        <PropertyRef Name="id_mark" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_mark" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car__id_model__4E88ABD4">
+    <End Role="model" Type="Self.model" Multiplicity="1" />
+    <End Role="car" Type="Self.car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="model">
+        <PropertyRef Name="id_model" />
+      </Principal>
+      <Dependent Role="car">
+        <PropertyRef Name="id_model" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car_by_dr__id_ca__70DDC3D8">
+    <End Role="car" Type="Self.car" Multiplicity="1" />
+    <End Role="car_by_driver" Type="Self.car_by_driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car">
+        <PropertyRef Name="id_car" />
+      </Principal>
+      <Dependent Role="car_by_driver">
+        <PropertyRef Name="id_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__car_by_dr__id_dr__6FE99F9F">
+    <End Role="driver" Type="Self.driver" Multiplicity="1" />
+    <End Role="car_by_driver" Type="Self.car_by_driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="id_driver" />
+      </Principal>
+      <Dependent Role="car_by_driver">
+        <PropertyRef Name="id_driver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__driver__id_car__6C190EBB">
+    <End Role="car" Type="Self.car" Multiplicity="1" />
+    <End Role="driver" Type="Self.driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="car">
+        <PropertyRef Name="id_car" />
+      </Principal>
+      <Dependent Role="driver">
+        <PropertyRef Name="id_car" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__driver__id_drive__6E01572D">
+    <End Role="driver_license" Type="Self.driver_license" Multiplicity="1" />
+    <End Role="driver" Type="Self.driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver_license">
+        <PropertyRef Name="id_driver_license" />
+      </Principal>
+      <Dependent Role="driver">
+        <PropertyRef Name="id_driver_license" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__driver__id_passp__6D0D32F4">
+    <End Role="passport" Type="Self.passport" Multiplicity="1" />
+    <End Role="driver" Type="Self.driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="passport">
+        <PropertyRef Name="id_passport" />
+      </Principal>
+      <Dependent Role="driver">
+        <PropertyRef Name="id_passport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__driver_li__id_ca__693CA210">
+    <End Role="categories" Type="Self.categories" Multiplicity="1" />
+    <End Role="driver_license" Type="Self.driver_license" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categories">
+        <PropertyRef Name="id_categories" />
+      </Principal>
+      <Dependent Role="driver_license">
+        <PropertyRef Name="id_categories" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__employer__id_emp__7C4F7684">
+    <End Role="employer_rank" Type="Self.employer_rank" Multiplicity="1" />
+    <End Role="employer" Type="Self.employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employer_rank">
+        <PropertyRef Name="id_employer_rank" />
+      </Principal>
+      <Dependent Role="employer">
+        <PropertyRef Name="id_employer_rank" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__employer__id_emp__7D439ABD">
+    <End Role="employer_position" Type="Self.employer_position" Multiplicity="1" />
+    <End Role="employer" Type="Self.employer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="employer_position">
+        <PropertyRef Name="id_employer_position" />
+      </Principal>
+      <Dependent Role="employer">
+        <PropertyRef Name="id_employer_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__model__id_mark__3B75D760">
+    <End Role="mark" Type="Self.mark" Multiplicity="0..1" />
+    <End Role="model" Type="Self.model" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mark">
+        <PropertyRef Name="id_mark" />
+      </Principal>
+      <Dependent Role="model">
+        <PropertyRef Name="id_mark" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__passport__id_add__66603565">
+    <End Role="address" Type="Self.address" Multiplicity="1" />
+    <End Role="passport" Type="Self.passport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="address">
+        <PropertyRef Name="id_address" />
+      </Principal>
+      <Dependent Role="passport">
+        <PropertyRef Name="id_address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__street__city_id__5AEE82B9">
+    <End Role="city" Type="Self.city" Multiplicity="0..1" />
+    <End Role="street" Type="Self.street" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="id_city" />
+      </Principal>
+      <Dependent Role="street">
+        <PropertyRef Name="city_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище MREO0ModelContainer">
+    <EntitySet Name="accident" EntityType="Self.accident" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="accounting" EntityType="Self.accounting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="address" EntityType="Self.address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="body_type" EntityType="Self.body_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="building_number" EntityType="Self.building_number" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car" EntityType="Self.car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car_number" EntityType="Self.car_number" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="categories" EntityType="Self.categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="color" EntityType="Self.color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="driver" EntityType="Self.driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="driver_license" EntityType="Self.driver_license" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employer" EntityType="Self.employer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employer_position" EntityType="Self.employer_position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="employer_rank" EntityType="Self.employer_rank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="engine_type" EntityType="Self.engine_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mark" EntityType="Self.mark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="model" EntityType="Self.model" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ownership_type" EntityType="Self.ownership_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="passport" EntityType="Self.passport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="street" EntityType="Self.street" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="car_by_driver" EntityType="Self.car_by_driver" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [car_by_driver].[id_driver] AS [id_driver], 
+    [car_by_driver].[id_car] AS [id_car]
+    FROM [dbo].[car_by_driver] AS [car_by_driver]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__accident__id_add__75A278F5" Association="Self.FK__accident__id_add__75A278F5">
+      <End Role="address" EntitySet="address" />
+      <End Role="accident" EntitySet="accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK__accident__id_car__73BA3083" Association="Self.FK__accident__id_car__73BA3083">
+      <End Role="car" EntitySet="car" />
+      <End Role="accident" EntitySet="accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK__accident__id_dri__74AE54BC" Association="Self.FK__accident__id_dri__74AE54BC">
+      <End Role="driver" EntitySet="driver" />
+      <End Role="accident" EntitySet="accident" />
+    </AssociationSet>
+    <AssociationSet Name="FK__address__id_buil__6383C8BA" Association="Self.FK__address__id_buil__6383C8BA">
+      <End Role="building_number" EntitySet="building_number" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__address__id_city__628FA481" Association="Self.FK__address__id_city__628FA481">
+      <End Role="city" EntitySet="city" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__address__id_stre__619B8048" Association="Self.FK__address__id_stre__619B8048">
+      <End Role="street" EntitySet="street" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK__building___stree__5EBF139D" Association="Self.FK__building___stree__5EBF139D">
+      <End Role="street" EntitySet="street" />
+      <End Role="building_number" EntitySet="building_number" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_accounti__5070F446" Association="Self.FK__car__id_accounti__5070F446">
+      <End Role="accounting" EntitySet="accounting" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_body_typ__534D60F1" Association="Self.FK__car__id_body_typ__534D60F1">
+      <End Role="body_type" EntitySet="body_type" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_car_numb__5165187F" Association="Self.FK__car__id_car_numb__5165187F">
+      <End Role="car_number" EntitySet="car_number" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_categori__52593CB8" Association="Self.FK__car__id_categori__52593CB8">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_color__4F7CD00D" Association="Self.FK__car__id_color__4F7CD00D">
+      <End Role="color" EntitySet="color" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_engine_t__5441852A" Association="Self.FK__car__id_engine_t__5441852A">
+      <End Role="engine_type" EntitySet="engine_type" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_mark__4D94879B" Association="Self.FK__car__id_mark__4D94879B">
+      <End Role="mark" EntitySet="mark" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car__id_model__4E88ABD4" Association="Self.FK__car__id_model__4E88ABD4">
+      <End Role="model" EntitySet="model" />
+      <End Role="car" EntitySet="car" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car_by_dr__id_ca__70DDC3D8" Association="Self.FK__car_by_dr__id_ca__70DDC3D8">
+      <End Role="car" EntitySet="car" />
+      <End Role="car_by_driver" EntitySet="car_by_driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__car_by_dr__id_dr__6FE99F9F" Association="Self.FK__car_by_dr__id_dr__6FE99F9F">
+      <End Role="driver" EntitySet="driver" />
+      <End Role="car_by_driver" EntitySet="car_by_driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__driver__id_car__6C190EBB" Association="Self.FK__driver__id_car__6C190EBB">
+      <End Role="car" EntitySet="car" />
+      <End Role="driver" EntitySet="driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__driver__id_drive__6E01572D" Association="Self.FK__driver__id_drive__6E01572D">
+      <End Role="driver_license" EntitySet="driver_license" />
+      <End Role="driver" EntitySet="driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__driver__id_passp__6D0D32F4" Association="Self.FK__driver__id_passp__6D0D32F4">
+      <End Role="passport" EntitySet="passport" />
+      <End Role="driver" EntitySet="driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK__driver_li__id_ca__693CA210" Association="Self.FK__driver_li__id_ca__693CA210">
+      <End Role="categories" EntitySet="categories" />
+      <End Role="driver_license" EntitySet="driver_license" />
+    </AssociationSet>
+    <AssociationSet Name="FK__employer__id_emp__7C4F7684" Association="Self.FK__employer__id_emp__7C4F7684">
+      <End Role="employer_rank" EntitySet="employer_rank" />
+      <End Role="employer" EntitySet="employer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__employer__id_emp__7D439ABD" Association="Self.FK__employer__id_emp__7D439ABD">
+      <End Role="employer_position" EntitySet="employer_position" />
+      <End Role="employer" EntitySet="employer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__model__id_mark__3B75D760" Association="Self.FK__model__id_mark__3B75D760">
+      <End Role="mark" EntitySet="mark" />
+      <End Role="model" EntitySet="model" />
+    </AssociationSet>
+    <AssociationSet Name="FK__passport__id_add__66603565" Association="Self.FK__passport__id_add__66603565">
+      <End Role="address" EntitySet="address" />
+      <End Role="passport" EntitySet="passport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__street__city_id__5AEE82B9" Association="Self.FK__street__city_id__5AEE82B9">
+      <End Role="city" EntitySet="city" />
+      <End Role="street" EntitySet="street" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

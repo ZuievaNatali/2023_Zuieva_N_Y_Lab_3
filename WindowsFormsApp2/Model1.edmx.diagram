@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8579037df744ed79c3d588bc1fbbc8e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="MREO0Model.accident" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.accounting" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.address" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.body_type" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.building_number" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.car" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.car_number" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.categories" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.city" Width="1.5" PointX="1.5" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.color" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.driver" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.driver_license" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.employer" Width="1.5" PointX="8" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.employer_position" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.employer_rank" Width="1.5" PointX="5.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.engine_type" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.mark" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.model" Width="1.5" PointX="0.75" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.ownership_type" Width="1.5" PointX="7.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.passport" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MREO0Model.street" Width="1.5" PointX="1.5" PointY="27" IsExpanded="true" />
+        <AssociationConnector Association="MREO0Model.FK__accident__id_add__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__accident__id_car__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__accident__id_dri__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_accounti__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__address__id_buil__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__address__id_city__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__address__id_stre__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__passport__id_add__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_body_typ__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__building___stree__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_car_numb__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_categori__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_color__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_engine_t__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_mark__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__car__id_model__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__driver__id_car__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__driver_li__id_ca__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__street__city_id__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__driver__id_drive__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__driver__id_passp__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__employer__id_emp__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__employer__id_emp__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.FK__model__id_mark__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="MREO0Model.car_by_driver" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

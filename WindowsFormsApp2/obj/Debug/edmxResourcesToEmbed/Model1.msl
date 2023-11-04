@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MREO0ModelContainer" CdmEntityContainer="MREO0Entities">
+    <EntitySetMapping Name="accident">
+      <EntityTypeMapping TypeName="MREO0Model.accident">
+        <MappingFragment StoreEntitySet="accident">
+          <ScalarProperty Name="id_accident" ColumnName="id_accident" />
+          <ScalarProperty Name="description_a" ColumnName="description_a" />
+          <ScalarProperty Name="date_time_accident" ColumnName="date_time_accident" />
+          <ScalarProperty Name="id_address" ColumnName="id_address" />
+          <ScalarProperty Name="id_driver" ColumnName="id_driver" />
+          <ScalarProperty Name="id_car" ColumnName="id_car" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="accounting">
+      <EntityTypeMapping TypeName="MREO0Model.accounting">
+        <MappingFragment StoreEntitySet="accounting">
+          <ScalarProperty Name="id_accounting" ColumnName="id_accounting" />
+          <ScalarProperty Name="date_start" ColumnName="date_start" />
+          <ScalarProperty Name="date_end" ColumnName="date_end" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="address">
+      <EntityTypeMapping TypeName="MREO0Model.address">
+        <MappingFragment StoreEntitySet="address">
+          <ScalarProperty Name="id_address" ColumnName="id_address" />
+          <ScalarProperty Name="id_street" ColumnName="id_street" />
+          <ScalarProperty Name="id_city" ColumnName="id_city" />
+          <ScalarProperty Name="id_building_number" ColumnName="id_building_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="body_type">
+      <EntityTypeMapping TypeName="MREO0Model.body_type">
+        <MappingFragment StoreEntitySet="body_type">
+          <ScalarProperty Name="id_body_type" ColumnName="id_body_type" />
+          <ScalarProperty Name="body_type1" ColumnName="body_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="building_number">
+      <EntityTypeMapping TypeName="MREO0Model.building_number">
+        <MappingFragment StoreEntitySet="building_number">
+          <ScalarProperty Name="id_building_number" ColumnName="id_building_number" />
+          <ScalarProperty Name="building_number1" ColumnName="building_number" />
+          <ScalarProperty Name="flat_number" ColumnName="flat_number" />
+          <ScalarProperty Name="street_id" ColumnName="street_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="car">
+      <EntityTypeMapping TypeName="MREO0Model.car">
+        <MappingFragment StoreEntitySet="car">
+          <ScalarProperty Name="id_car" ColumnName="id_car" />
+          <ScalarProperty Name="id_mark" ColumnName="id_mark" />
+          <ScalarProperty Name="id_model" ColumnName="id_model" />
+          <ScalarProperty Name="id_color" ColumnName="id_color" />
+          <ScalarProperty Name="id_accounting" ColumnName="id_accounting" />
+          <ScalarProperty Name="id_car_number" ColumnName="id_car_number" />
+          <ScalarProperty Name="id_categories" ColumnName="id_categories" />
+          <ScalarProperty Name="id_body_type" ColumnName="id_body_type" />
+          <ScalarProperty Name="id_engine_type" ColumnName="id_engine_type" />
+          <ScalarProperty Name="sit" ColumnName="sit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="car_number">
+      <EntityTypeMapping TypeName="MREO0Model.car_number">
+        <MappingFragment StoreEntitySet="car_number">
+          <ScalarProperty Name="id_car_number" ColumnName="id_car_number" />
+          <ScalarProperty Name="car_number1" ColumnName="car_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="MREO0Model.categories">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="id_categories" ColumnName="id_categories" />
+          <ScalarProperty Name="categories1" ColumnName="categories" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="city">
+      <EntityTypeMapping TypeName="MREO0Model.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="id_city" ColumnName="id_city" />
+          <ScalarProperty Name="city_name" ColumnName="city_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="color">
+      <EntityTypeMapping TypeName="MREO0Model.color">
+        <MappingFragment StoreEntitySet="color">
+          <ScalarProperty Name="id_color" ColumnName="id_color" />
+          <ScalarProperty Name="color1" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="driver">
+      <EntityTypeMapping TypeName="MREO0Model.driver">
+        <MappingFragment StoreEntitySet="driver">
+          <ScalarProperty Name="id_driver" ColumnName="id_driver" />
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="id_driver_license" ColumnName="id_driver_license" />
+          <ScalarProperty Name="id_car" ColumnName="id_car" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="driver_license">
+      <EntityTypeMapping TypeName="MREO0Model.driver_license">
+        <MappingFragment StoreEntitySet="driver_license">
+          <ScalarProperty Name="license_number" ColumnName="license_number" />
+          <ScalarProperty Name="department_name" ColumnName="department_name" />
+          <ScalarProperty Name="date_of_receiving" ColumnName="date_of_receiving" />
+          <ScalarProperty Name="id_driver_license" ColumnName="id_driver_license" />
+          <ScalarProperty Name="id_categories" ColumnName="id_categories" />
+          <ScalarProperty Name="id_driver_license_data" ColumnName="id_driver_license_data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employer">
+      <EntityTypeMapping TypeName="MREO0Model.employer">
+        <MappingFragment StoreEntitySet="employer">
+          <ScalarProperty Name="id_employer" ColumnName="id_employer" />
+          <ScalarProperty Name="id_employer_rank" ColumnName="id_employer_rank" />
+          <ScalarProperty Name="id_employer_position" ColumnName="id_employer_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employer_position">
+      <EntityTypeMapping TypeName="MREO0Model.employer_position">
+        <MappingFragment StoreEntitySet="employer_position">
+          <ScalarProperty Name="id_employer_position" ColumnName="id_employer_position" />
+          <ScalarProperty Name="position_a" ColumnName="position_a" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employer_rank">
+      <EntityTypeMapping TypeName="MREO0Model.employer_rank">
+        <MappingFragment StoreEntitySet="employer_rank">
+          <ScalarProperty Name="id_employer_rank" ColumnName="id_employer_rank" />
+          <ScalarProperty Name="rank_a" ColumnName="rank_a" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="engine_type">
+      <EntityTypeMapping TypeName="MREO0Model.engine_type">
+        <MappingFragment StoreEntitySet="engine_type">
+          <ScalarProperty Name="id_engine_type" ColumnName="id_engine_type" />
+          <ScalarProperty Name="engine_type1" ColumnName="engine_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mark">
+      <EntityTypeMapping TypeName="MREO0Model.mark">
+        <MappingFragment StoreEntitySet="mark">
+          <ScalarProperty Name="id_mark" ColumnName="id_mark" />
+          <ScalarProperty Name="mark1" ColumnName="mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="model">
+      <EntityTypeMapping TypeName="MREO0Model.model">
+        <MappingFragment StoreEntitySet="model">
+          <ScalarProperty Name="id_model" ColumnName="id_model" />
+          <ScalarProperty Name="model1" ColumnName="model" />
+          <ScalarProperty Name="id_mark" ColumnName="id_mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ownership_type">
+      <EntityTypeMapping TypeName="MREO0Model.ownership_type">
+        <MappingFragment StoreEntitySet="ownership_type">
+          <ScalarProperty Name="id_ownership_type" ColumnName="id_ownership_type" />
+          <ScalarProperty Name="ownership_type1" ColumnName="ownership_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="passport">
+      <EntityTypeMapping TypeName="MREO0Model.passport">
+        <MappingFragment StoreEntitySet="passport">
+          <ScalarProperty Name="id_passport" ColumnName="id_passport" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="passport_number" ColumnName="passport_number" />
+          <ScalarProperty Name="id_address" ColumnName="id_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="street">
+      <EntityTypeMapping TypeName="MREO0Model.street">
+        <MappingFragment StoreEntitySet="street">
+          <ScalarProperty Name="id_street" ColumnName="id_street" />
+          <ScalarProperty Name="street_name" ColumnName="street_name" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="car_by_driver" TypeName="MREO0Model.car_by_driver" StoreEntitySet="car_by_driver">
+      <EndProperty Name="car">
+        <ScalarProperty Name="id_car" ColumnName="id_car" />
+      </EndProperty>
+      <EndProperty Name="driver">
+        <ScalarProperty Name="id_driver" ColumnName="id_driver" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
